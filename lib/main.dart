@@ -1,4 +1,6 @@
 import 'package:financeapp/src/View/HomeScreen.dart';
+import 'package:financeapp/src/View/Statistics.dart';
+import 'package:financeapp/widget/bottomNavigation.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
     debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: Bottom(),
     );
   }
 }
