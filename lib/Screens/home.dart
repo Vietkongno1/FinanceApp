@@ -1,7 +1,9 @@
-import 'package:financeapp/src/data/model/add_date.dart';
-import 'package:financeapp/src/data/utility.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
+
+import 'package:managment/data/model/add_date.dart';
+import 'package:managment/data/utlity.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -34,9 +36,9 @@ class _HomeState extends State<Home> {
                     SliverToBoxAdapter(
                       child: SizedBox(height: 340, child: _head()),
                     ),
-                    const SliverToBoxAdapter(
+                    SliverToBoxAdapter(
                       child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 15),
+                        padding: const EdgeInsets.symmetric(horizontal: 15),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -62,7 +64,7 @@ class _HomeState extends State<Home> {
                     ),
                     SliverList(
                       delegate: SliverChildBuilderDelegate(
-                            (context, index) {
+                        (context, index) {
                           history = box.values.toList()[index];
                           return getList(history, index);
                         },
@@ -92,14 +94,14 @@ class _HomeState extends State<Home> {
       ),
       title: Text(
         history.name,
-        style: const TextStyle(
+        style: TextStyle(
           fontSize: 17,
           fontWeight: FontWeight.w600,
         ),
       ),
       subtitle: Text(
-        '${day[history.dateTime.weekday - 1]}  ${history.dateTime.year}-${history.dateTime.day}-${history.dateTime.month}',
-        style: const TextStyle(
+        '${day[history.datetime.weekday - 1]}  ${history.datetime.year}-${history.datetime.day}-${history.datetime.month}',
+        style: TextStyle(
           fontWeight: FontWeight.w600,
         ),
       ),
@@ -122,7 +124,7 @@ class _HomeState extends State<Home> {
             Container(
               width: double.infinity,
               height: 240,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 color: Color(0xff368983),
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(20),
@@ -139,8 +141,8 @@ class _HomeState extends State<Home> {
                       child: Container(
                         height: 40,
                         width: 40,
-                        color: const Color.fromRGBO(250, 250, 250, 0.1),
-                        child: const Icon(
+                        color: Color.fromRGBO(250, 250, 250, 0.1),
+                        child: Icon(
                           Icons.notification_add_outlined,
                           size: 30,
                           color: Colors.white,
@@ -148,8 +150,8 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 35, left: 10),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 35, left: 10),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -162,7 +164,7 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                         Text(
-                          'Enjelin Morgeana',
+                          'Mr Hoang Son ',
                           style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: 20,
@@ -184,7 +186,7 @@ class _HomeState extends State<Home> {
             height: 170,
             width: 320,
             decoration: BoxDecoration(
-              boxShadow: const [
+              boxShadow: [
                 BoxShadow(
                   color: Color.fromRGBO(47, 125, 121, 0.3),
                   offset: Offset(0, 6),
@@ -192,14 +194,14 @@ class _HomeState extends State<Home> {
                   spreadRadius: 6,
                 ),
               ],
-              color: const Color.fromARGB(255, 47, 125, 121),
+              color: Color.fromARGB(255, 47, 125, 121),
               borderRadius: BorderRadius.circular(15),
             ),
             child: Column(
               children: [
-                const SizedBox(height: 10),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15),
+                SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -218,14 +220,14 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 7),
+                SizedBox(height: 7),
                 Padding(
                   padding: const EdgeInsets.only(left: 15),
                   child: Row(
                     children: [
                       Text(
-                        '\$ ${total()}',
-                        style: const TextStyle(
+                        'VND ${total()}',
+                        style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 25,
                           color: Colors.white,
@@ -234,9 +236,9 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 25),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15),
+                SizedBox(height: 25),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -287,23 +289,23 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                 ),
-                const SizedBox(height: 6),
+                SizedBox(height: 6),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '\$ ${income()}',
-                        style: const TextStyle(
+                        'VND ${income()}',
+                        style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 17,
                           color: Colors.white,
                         ),
                       ),
                       Text(
-                        '\$ ${expenses()}',
-                        style: const TextStyle(
+                        'VND ${expenses()}',
+                        style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 17,
                           color: Colors.white,

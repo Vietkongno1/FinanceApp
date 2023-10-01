@@ -1,4 +1,4 @@
-import 'package:financeapp/src/data/Model.dart';
+import 'package:financeapp/src/data/listdata.dart';
 
 List<money> getter(){
   money upwork = money();

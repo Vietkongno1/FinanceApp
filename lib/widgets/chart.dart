@@ -1,7 +1,6 @@
-import 'package:financeapp/src/data/model/add_date.dart';
-import 'package:financeapp/src/data/utility.dart';
 import 'package:flutter/material.dart';
-
+import 'package:managment/data/model/add_date.dart';
+import 'package:managment/data/utlity.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class Chart extends StatefulWidget {
@@ -55,17 +54,17 @@ class _ChartState extends State<Chart> {
                 return SalesData(
                     j
                         ? b
-                        ? a![index].dateTime.hour.toString()
-                        : a![index].dateTime.day.toString()
-                        : a![index].dateTime.month.toString(),
+                            ? a![index].datetime.hour.toString()
+                            : a![index].datetime.day.toString()
+                        : a![index].datetime.month.toString(),
                     b
                         ? index > 0
-                        ? time(a!, true)[index] + time(a!, true)[index - 1]
-                        : time(a!, true)[index]
+                            ? time(a!, true)[index] + time(a!, true)[index - 1]
+                            : time(a!, true)[index]
                         : index > 0
-                        ? time(a!, false)[index] +
-                        time(a!, false)[index - 1]
-                        : time(a!, false)[index]);
+                            ? time(a!, false)[index] +
+                                time(a!, false)[index - 1]
+                            : time(a!, false)[index]);
               })
             ],
             xValueMapper: (SalesData sales, _) => sales.year,

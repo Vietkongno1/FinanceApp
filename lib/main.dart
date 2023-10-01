@@ -1,22 +1,26 @@
-import 'package:financeapp/src/View/HomeScreen.dart';
-import 'package:financeapp/src/View/Statistics.dart';
-import 'package:financeapp/widget/bottomNavigation.dart';
 import 'package:flutter/material.dart';
+import 'package:managment/Screens/home.dart';
+import 'package:managment/Screens/statistics.dart';
+import 'package:managment/widgets/bottomnavigationbar.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-void main() {
+import 'data/model/add_date.dart';
+
+void main() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(AdddataAdapter());
+  await Hive.openBox<Add_data>('data');
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-    debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
       home: Bottom(),
     );
   }
 }
-

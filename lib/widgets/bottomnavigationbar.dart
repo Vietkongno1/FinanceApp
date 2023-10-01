@@ -1,8 +1,7 @@
-import 'package:financeapp/src/View/Add_screen.dart';
-import 'package:financeapp/src/View/HomeScreen.dart';
-import 'package:financeapp/src/View/Statistics.dart';
 import 'package:flutter/material.dart';
-
+import 'package:managment/Screens/add.dart';
+import 'package:managment/Screens/home.dart';
+import 'package:managment/Screens/statistics.dart';
 
 class Bottom extends StatefulWidget {
   const Bottom({Key? key}) : super(key: key);
@@ -21,7 +20,7 @@ class _BottomState extends State<Bottom> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => AddScreen()));
+              .push(MaterialPageRoute(builder: (context) => Add_Screen()));
         },
         child: Icon(Icons.add),
         backgroundColor: Color(0xff368983),
