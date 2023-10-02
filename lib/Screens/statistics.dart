@@ -1,7 +1,8 @@
+import 'package:financeapp/data/utlity.dart';
+import 'package:financeapp/widget/chart.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:managment/data/utlity.dart';
-import 'package:managment/widgets/chart.dart';
+
 
 import '../data/model/add_date.dart';
 import '../data/top.dart';

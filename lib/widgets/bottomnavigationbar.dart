@@ -1,7 +1,8 @@
+import 'package:financeapp/Screens/add.dart';
+import 'package:financeapp/Screens/home.dart';
+import 'package:financeapp/Screens/statistics.dart';
 import 'package:flutter/material.dart';
-import 'package:managment/Screens/add.dart';
-import 'package:managment/Screens/home.dart';
-import 'package:managment/Screens/statistics.dart';
+
 
 class Bottom extends StatefulWidget {
   const Bottom({Key? key}) : super(key: key);

@@ -1,5 +1,6 @@
+import 'package:financeapp/data/model/add_date.dart';
 import 'package:hive/hive.dart';
-import 'package:managment/data/model/add_date.dart';
+
 
 int totals = 0;
 

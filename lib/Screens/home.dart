@@ -1,9 +1,8 @@
+import 'package:financeapp/data/model/add_date.dart';
+import 'package:financeapp/data/utlity.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
-
-import 'package:managment/data/model/add_date.dart';
-import 'package:managment/data/utlity.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
